@@ -3,8 +3,20 @@ const Game = () => {
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [isXNext, setIxNext] = useState(true);
 
+  const changeTurn = () => {
+    setIxNext(!isXNext);
+  };
+
   const handleClick = (squareIndex) => {
     console.log(squareIndex, squares);
+
+    // see https://devhints.io/js-array
+    // const newState = squares.splice(squareIndex, 1, isXNext ? "X" : "O");
+    const newState = squares.slice();
+    newState[squareIndex] = isXNext ? "X" : "O";
+    setSquares(newState);
+    console.log(newState);
+    changeTurn();
   };
 
   return (
