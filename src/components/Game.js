@@ -1,10 +1,31 @@
 import React, { useState } from "react";
+import Square from "./Square";
 const Game = () => {
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [isXNext, setIxNext] = useState(true);
 
   const changeTurn = () => {
     setIxNext(!isXNext);
+  };
+
+  const getStatus = () => {
+    if (false) {
+      return "Winner: " + false;
+    } else if (isBoardFull(squares)) {
+      return "Draw!";
+    } else {
+      const player = isXNext ? "X" : "O";
+      return "Next player: " + player;
+    }
+  };
+
+  const isBoardFull = (squares) => {
+    for (let i = 0; i < squares.length; i++) {
+      if (squares[i] == null) {
+        return false;
+      }
+    }
+    return true;
   };
 
   const handleClick = (squareIndex) => {
@@ -27,14 +48,13 @@ const Game = () => {
         <div className="game">
           <div className="game-board">
             <div className="board-row">
-              <div
-                onClick={() => {
+              <Square
+                marker={squares[0]}
+                squareId={0}
+                handleClick={() => {
                   handleClick(0);
                 }}
-                className="square"
-              >
-                {squares[0]}
-              </div>
+              />
               <div
                 onClick={() => {
                   handleClick(1);
@@ -104,6 +124,7 @@ const Game = () => {
                 {squares[8]}
               </div>
             </div>
+            <div className="game-info">{getStatus()}</div>
           </div>
         </div>
       </div>
