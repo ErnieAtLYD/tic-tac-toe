@@ -8,10 +8,12 @@ const Game = () => {
   };
 
   const handleClick = (squareIndex) => {
+    if (squares[squareIndex] !== null) {
+      return;
+    }
     console.log(squareIndex, squares);
 
     // see https://devhints.io/js-array
-    // const newState = squares.splice(squareIndex, 1, isXNext ? "X" : "O");
     const newState = squares.slice();
     newState[squareIndex] = isXNext ? "X" : "O";
     setSquares(newState);
@@ -51,14 +53,56 @@ const Game = () => {
               </div>
             </div>
             <div className="board-row">
-              <div className="square">{squares[3]}</div>
-              <div className="square">{squares[4]}</div>
-              <div className="square">{squares[5]}</div>
+              <div
+                onClick={() => {
+                  handleClick(3);
+                }}
+                className="square"
+              >
+                {squares[3]}
+              </div>
+              <div
+                onClick={() => {
+                  handleClick(4);
+                }}
+                className="square"
+              >
+                {squares[4]}
+              </div>
+              <div
+                onClick={() => {
+                  handleClick(5);
+                }}
+                className="square"
+              >
+                {squares[5]}
+              </div>
             </div>
             <div className="board-row">
-              <div className="square">{squares[6]}</div>
-              <div className="square">{squares[7]}</div>
-              <div className="square">{squares[8]}</div>
+              <div
+                onClick={() => {
+                  handleClick(6);
+                }}
+                className="square"
+              >
+                {squares[6]}
+              </div>
+              <div
+                onClick={() => {
+                  handleClick(7);
+                }}
+                className="square"
+              >
+                {squares[7]}
+              </div>
+              <div
+                onClick={() => {
+                  handleClick(8);
+                }}
+                className="square"
+              >
+                {squares[8]}
+              </div>
             </div>
           </div>
         </div>
