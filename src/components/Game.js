@@ -1,24 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 const Game = () => {
+  const [squares, setSquares] = useState(Array(9).fill(null));
+  const [isXNext, setIxNext] = useState(true);
   return (
     <>
       <div className="container">
         <div className="game">
           <div className="game-board">
             <div className="board-row">
-              <div className="square"></div>
-              <div className="square"></div>
-              <div className="square"></div>
+              <div className="square">{squares[0]}</div>
+              <div className="square">{squares[1]}</div>
+              <div className="square">{squares[2]}</div>
             </div>
             <div className="board-row">
-              <div className="square"></div>
-              <div className="square"></div>
-              <div className="square"></div>
+              <div className="square">{squares[3]}</div>
+              <div className="square">{squares[4]}</div>
+              <div className="square">{squares[5]}</div>
             </div>
             <div className="board-row">
-              <div className="square"></div>
-              <div className="square"></div>
-              <div className="square"></div>
+              <div className="square">{squares[6]}</div>
+              <div className="square">{squares[7]}</div>
+              <div className="square">{squares[8]}</div>
             </div>
           </div>
         </div>
