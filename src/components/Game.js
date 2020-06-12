@@ -45,12 +45,7 @@ const Game = () => {
   };
 
   const isBoardFull = (squares) => {
-    for (let i = 0; i < squares.length; i++) {
-      if (squares[i] == null) {
-        return false;
-      }
-    }
-    return true;
+    return squares.join("") === 9;
   };
 
   const handleClick = (squareIndex) => {
@@ -67,79 +62,37 @@ const Game = () => {
     changeTurn();
   };
 
+  const buildSquare = (index) => {
+    return (
+      <Square
+        marker={squares[index]}
+        squareId={index}
+        handleClick={() => {
+          handleClick(index);
+        }}
+      />
+    );
+  };
+
   return (
     <>
       <div className="container">
         <div className="game">
           <div className="game-board">
             <div className="board-row">
-              <Square
-                marker={squares[0]}
-                squareId={0}
-                handleClick={() => {
-                  handleClick(0);
-                }}
-              />
-              <Square
-                marker={squares[1]}
-                squareId={1}
-                handleClick={() => {
-                  handleClick(1);
-                }}
-              />
-              <Square
-                marker={squares[2]}
-                squareId={2}
-                handleClick={() => {
-                  handleClick(2);
-                }}
-              />
+              {buildSquare(0)}
+              {buildSquare(1)}
+              {buildSquare(2)}
             </div>
             <div className="board-row">
-              <Square
-                marker={squares[3]}
-                squareId={3}
-                handleClick={() => {
-                  handleClick(3);
-                }}
-              />
-              <Square
-                marker={squares[4]}
-                squareId={4}
-                handleClick={() => {
-                  handleClick(4);
-                }}
-              />
-              <Square
-                marker={squares[5]}
-                squareId={5}
-                handleClick={() => {
-                  handleClick(5);
-                }}
-              />
+              {buildSquare(3)}
+              {buildSquare(4)}
+              {buildSquare(5)}
             </div>
             <div className="board-row">
-              <Square
-                marker={squares[6]}
-                squareId={6}
-                handleClick={() => {
-                  handleClick(6);
-                }}
-              />
-              <Square
-                marker={squares[7]}
-                squareId={7}
-                handleClick={() => {
-                  handleClick(7);
-                }}
-              />
-              <Square
-                marker={squares[8]}
-                squareId={8}
-                handleClick={() => {
-                  handleClick(8);
-                }}
-              />
+              {buildSquare(6)}
+              {buildSquare(7)}
+              {buildSquare(8)}
             </div>
             <div className="game-info">{getStatus()}</div>
           </div>
