@@ -80,74 +80,66 @@ const Game = () => {
                   handleClick(0);
                 }}
               />
-              <div
-                onClick={() => {
+              <Square
+                marker={squares[1]}
+                squareId={1}
+                handleClick={() => {
                   handleClick(1);
                 }}
-                className="square"
-              >
-                {squares[1]}
-              </div>
-              <div
-                onClick={() => {
+              />
+              <Square
+                marker={squares[2]}
+                squareId={2}
+                handleClick={() => {
                   handleClick(2);
                 }}
-                className="square"
-              >
-                {squares[2]}
-              </div>
+              />
             </div>
             <div className="board-row">
-              <div
-                onClick={() => {
+              <Square
+                marker={squares[3]}
+                squareId={3}
+                handleClick={() => {
                   handleClick(3);
                 }}
-                className="square"
-              >
-                {squares[3]}
-              </div>
-              <div
-                onClick={() => {
+              />
+              <Square
+                marker={squares[4]}
+                squareId={4}
+                handleClick={() => {
                   handleClick(4);
                 }}
-                className="square"
-              >
-                {squares[4]}
-              </div>
-              <div
-                onClick={() => {
+              />
+              <Square
+                marker={squares[5]}
+                squareId={5}
+                handleClick={() => {
                   handleClick(5);
                 }}
-                className="square"
-              >
-                {squares[5]}
-              </div>
+              />
             </div>
             <div className="board-row">
-              <div
-                onClick={() => {
+              <Square
+                marker={squares[6]}
+                squareId={6}
+                handleClick={() => {
                   handleClick(6);
                 }}
-                className="square"
-              >
-                {squares[6]}
-              </div>
-              <div
-                onClick={() => {
+              />
+              <Square
+                marker={squares[7]}
+                squareId={7}
+                handleClick={() => {
                   handleClick(7);
                 }}
-                className="square"
-              >
-                {squares[7]}
-              </div>
-              <div
-                onClick={() => {
+              />
+              <Square
+                marker={squares[8]}
+                squareId={8}
+                handleClick={() => {
                   handleClick(8);
                 }}
-                className="square"
-              >
-                {squares[8]}
-              </div>
+              />
             </div>
             <div className="game-info">{getStatus()}</div>
           </div>
